@@ -587,7 +587,7 @@ function Stage_UbtGenCmd()
         CurrentGenData.target.PlatformName .. " -headers"
 
     vim.cmd("compiler msvc")
-    vim.cmd("Dispatch " .. cmd)
+    vim.cmd("Dispatch &" .. cmd)
 end
 
 function Stage_GenHeadersCompleted()
@@ -732,7 +732,7 @@ function Commands.BuildCoroutine()
         CurrentGenData.projectPath .. " -waitmutex"
 
     vim.cmd("compiler msvc")
-    vim.cmd("Dispatch " .. cmd)
+    vim.cmd("Dispatch &" .. cmd)
 
 end
 
@@ -790,7 +790,7 @@ function Commands.run(opts)
 
     PrintAndLogMessage(cmd)
     vim.cmd("compiler msvc")
-    vim.cmd("Dispatch " .. cmd)
+    vim.cmd("Dispatch &" .. cmd)
     Commands.EndTask("run")
     Commands.EndTask("final")
 end
@@ -944,7 +944,7 @@ function Commands.generateCommandsCoroutine()
     PrintAndLogMessage("Dispatching command:")
     PrintAndLogMessage(cmd)
     CurrentCompileCommandsTargetFilePath =  CurrentGenData.prjDir .. "/compile_commands.json"
-    vim.api.nvim_command("Dispatch " .. cmd)
+    vim.api.nvim_command("Dispatch &" .. cmd)
     PrintAndLogMessage("Dispatched")
 end
 
